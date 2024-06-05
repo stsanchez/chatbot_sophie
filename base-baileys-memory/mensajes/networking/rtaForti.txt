@@ -1,0 +1,13 @@
+¿Que error te sale en el cartel?
+
+◾Te sale error -7200? Anda al paso 3 del menu principal y revisa si no se te vencio tu clave y necesitas hacer el cambio.
+
+◾Te sale error -8? Estoy segura que se te bloqueo la clave. Tambien debes ir al paso 3 y desbloquea tu usuario. Despues contas!
+
+◾Si te sale el cartel que dice "Imposible establecer conexión VPN. El servidor de VPN podría no estar disponible" ahi te recomiendo que revises tu conexion y pruebes reiniciando el modem.
+  *Te tiro un tip: Dejalo desenchufado por 10 segundos* 😉
+
+◾ Si te sale otro codigo de error como por ejemplo -14, -20199 u algun otro que no te dije o ninguna de las anteriores opciones te sirvio, hace una captura del error y hacele un ticket a service desk adjuntando la imagen del error.
+Si no sabes como hacer el ticket podes volver a escribir menu e ir a la opcion 3 donde te muestro como hacerlo.
+
+Espero haberte ayudado, que estes bien! 😊

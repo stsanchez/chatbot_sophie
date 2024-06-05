@@ -1,0 +1,7 @@
+◾Estas en Melian y ya ingresaste anteriormente a esta pagina? Proba bloquear la maquina (botón de windows + L) y volver a loguearte.
+
+◾Si el problema persiste o es la primera vez que intetas ingresas carga un ticket a service desk con la captura del error que ellos te van a ayudar.
+
+◾Fijate tambien si tenes la extension de FortiClientWebFilter
+
+*En la opcion 3 del menu principal tenes todo lo que necesitas para hacer el ticket*

@@ -1,18 +1,9 @@
-Aca te paso unas opciones para que elijas y una descricion que puede ayudarte:
+1️- Server Admin: Acá podés encontrar todo lo relacionado con permisos, grupos de usuarios, licencias y correos.
 
-1-*Server Admin*:
-Aca vas a encontrar todo lo refido a permisos, grupos de usuario, licencias, correos
+2️- Networking: ¿Tenes problemas de conexión? Acá encontrarás ayuda con redes y FortiClient, como problemas de conexión Wi-Fi.
 
-2-*Networking*:
-Aca vas a encontrar todo lo referido a redes o fortiClient. Por ejemplo si no te podes conectar a forti o si no funciona el wifi
+3️ - Telefonía: ¿Algo relacionado con llamadas? Aca te ayudamos temas como problemas con Avaya, Barra CCTsuite y Hardphones.
 
-3-*telfonia*:
-Aca esta todo lo referido a telefonioa como por ejemplo problemas con avaya, barra CCTsuite y Hardphones.
+4️ - Soporte Core: ¿Necesitas asistencia con aplicaciones esenciales de emergencias como RCDGTE o portales web? Estás en el lugar indicado.
 
-4-*Soporte Core*:
-Todo lo que sea aplicaciones propias de emergencias como por ejemplo RCDGTE y portales web lo vas a encontrar aca.
-
-5-*Service desk*:
-Si no encontraste nada en las anteriores, hacenos un ticket comentando el problema que te ayudamos.
-
-Para volver a ver las opciones principales escribi *Menu*
+5️- Service Desk: ¿No encontraste lo que buscabas o tenés algún problema con algún equipo? ¡Estamos acá para ayudarte!

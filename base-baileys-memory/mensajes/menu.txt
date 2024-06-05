@@ -1,9 +1,8 @@
-Elegi alguna de estas opciones:
+📋 *Elige alguna de estas opciones:*
 
-1 - Problemas frecuentes
-2 - Generar un ticket
-3 - Desbloquear usuario
-4-  Preguntame lo que quieras saber
+1️⃣ - Problemas frecuentes
+2️⃣ - Generar un ticket
+3️⃣ - Desbloquear usuario
+4️⃣ - Pregúntame lo que quieras saber
 
-
-0 - Salir
+0️⃣ - Salir
