@@ -1,0 +1,6 @@
+◾Si no te conecta el WiFi Corporativo es muy probable que tengas tu usuario bloqueado o te haya vencido la clave.
+ Te recomiendo ir a la opcion 3 de del menu y revisar el estado de tu usuario y despues vovler a probar.
+
+◾Si tu usuario esta bien,  anda a la opcion 2 del menu y hacele un ticket a Service Desk para que revisen tu caso.
+
+*Te paso un tip: Si cambiaste recientemente la clave, enchufa tu compu a un cable de red, bloquea el equipo con la tecla Windows + L y volve a loguearte.*

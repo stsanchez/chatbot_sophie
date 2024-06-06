@@ -33,6 +33,17 @@ const service =  fs.readFileSync(serviceDeskPath, 'utf-8');
 const rtaFortiPath = path.join(__dirname, 'mensajes', 'networking', 'rtaForti.txt')
 const rtaForti =  fs.readFileSync(rtaFortiPath, 'utf-8');
 
+const rtaBloqueadaPath = path.join(__dirname, 'mensajes', 'networking', 'rtaBloqueada.txt')
+const rtaBloqueada =  fs.readFileSync(rtaBloqueadaPath, 'utf-8');
+
+const rtaWifiPath = path.join(__dirname, 'mensajes', 'networking', 'rtaWifi.txt')
+const rtaWifi =  fs.readFileSync(rtaWifiPath, 'utf-8');
+
+const rtaOtrasPath = path.join(__dirname, 'mensajes', 'networking', 'rtaOtras.txt')
+const rtaOtras =  fs.readFileSync(rtaOtrasPath, 'utf-8');
+
+
+
 //######################################################################
 //################ SECCION PARA DECLARAR FLOWS #########################
 //######################################################################
@@ -58,12 +69,19 @@ const flowWelcome = addKeyword(EVENTS.WELCOME)
 
 const flowRtaForti = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaForti)
+const flowRtaBloqueada = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaBloqueada)
+const flowRtaWifi = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaWifi)
+const flowRtaOtras = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaOtras)
 
 
     const flowTicket = addKeyword(EVENTS.ACTION)
     .addAnswer('Para hacer un ticker por favor ingresar a https://emergencias.sd.cloud.invgate.net/')
-    .addAnswer('h', {
-        media: 'https://emergencias.invgateusercontent.net/emergencias/uploads/attached_files/knowledge/4702/3f6cc75e84afb1416d4934b00269d4c3/Troubleshooting%20forti.pdf'
+    .addAnswer('a',{
+        //media: 'https://emergencias.invgateusercontent.net/emergencias/uploads/attached_files/knowledge/4702/3f6cc75e84afb1416d4934b00269d4c3/Troubleshooting%20forti.pdf'
+        media: path.join(__dirname,'media','invgate 2.pdf')
     })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
@@ -86,18 +104,7 @@ const flowServerAdmin = addKeyword(EVENTS.ACTION)
 
 
 
-const flowNetworking = addKeyword(EVENTS.ACTION)
-    .addAnswer(networking, { capture: true }, async (ctx, { gotoFlow, fallBack }) => {
-        switch (ctx.body) {
-            case '1':
-                return gotoFlow(flowRtaForti)
-  
-            case '0':
-                return gotoFlow(flowProblemasFrecuentes);         
-        }
-        
 
-    });
 
 const flowTelefonia = addKeyword(EVENTS.ACTION)
 .addAnswer('Te la debo');
@@ -189,11 +196,27 @@ const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
     }
 );
 
+const flowNetworking = addKeyword(EVENTS.ACTION)
+    .addAnswer(networking, { capture: true }, async (ctx, { gotoFlow, fallBack }) => {
+        switch (ctx.body) {
+            case '1':
+                return gotoFlow(flowRtaForti)
+            case '2':
+                return gotoFlow(flowDesbloqueo)
+            case '3':
+                return gotoFlow(flowRtaWifi)
+            case '4':
+                return gotoFlow(flowRtaOtras)  
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes);         
+        }
+        
 
+    });
 
 const main = async () => {
     const adapterDB = new MockAdapter();
-    const adapterFlow = createFlow([flowPrincipal,flowWelcome, menuFlow, flowProblemasFrecuentes, flowTicket, flowDesbloqueo, flowConsultas, flowServerAdmin, flowNetworking, flowTelefonia, flowCore, flowService, flowServiceDesk2,flowRtaForti]);
+    const adapterFlow = createFlow([flowPrincipal,flowWelcome, menuFlow, flowProblemasFrecuentes, flowTicket, flowDesbloqueo, flowConsultas, flowServerAdmin, flowNetworking, flowTelefonia, flowCore, flowService, flowServiceDesk2,flowRtaForti,flowConsultas,flowRtaOtras,flowRtaWifi]);
     const adapterProvider = createProvider(BaileysProvider);
 
     createBot({

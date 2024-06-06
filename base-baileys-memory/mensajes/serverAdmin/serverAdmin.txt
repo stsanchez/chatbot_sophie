@@ -1,9 +1,12 @@
 Bien, elegiste Server Admin. Te paso una serie de temas a ver si encontras el que te puede ayudar:
 
-1- No puedo acceder a una carpeta compartida
+1- No puedo acceder a una carpeta compartida.
 
-2- Mi usuario recien creado no aparece en teams
+2- Los datos de mi usuario no estan correctamente.
 
-3- Necesito ayuda con las licencias de office 
+3- Necesito ayuda con las licencias de office.
 
-Para volver a ver las opciones principales escribi *Menu*
+4- No encuentro mi inconveniente.
+
+
+Para volver a ver las opciones principales escribe *Menu*
