@@ -1,0 +1,3 @@
+Fíjate en la configuración ⚙️> configuración general ⚙️> cuentas 📞. En Telefonía, marca la opción de H.323. 
+En la extensión, poné tu número de interno, en la contraseña 43873, 
+y en la lista de servidores 10.2.2.4. 🖥️ PD: Si figura otro servidor, quitalo y agregá el de 10.2.2.4. 🚫➕

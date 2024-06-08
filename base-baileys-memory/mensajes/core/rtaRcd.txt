@@ -1,0 +1,9 @@
+No podes acceder al modulo? No te preocupes, te ayudo a resolverlo!
+
+◾Pimero que nada revisa que estes teniendo conexion a internet
+
+◾Tambien fijate si tu usuario no tiene la clave vencida o esta bloqueado. Para eso anda a la opcion 3 del menu principal donde podes resolver un problema con tu usuario.
+
+◾Si nada de eso funciono, hace una captura del error y hace un ticket a Service Desk con la captura.
+
+❗Recorda apretar el boton de Detalles para hacerle la captura y enviarla. Eso va a facilitar el proceso

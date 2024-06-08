@@ -42,6 +42,48 @@ const rtaWifi =  fs.readFileSync(rtaWifiPath, 'utf-8');
 const rtaOtrasPath = path.join(__dirname, 'mensajes', 'networking', 'rtaOtras.txt')
 const rtaOtras =  fs.readFileSync(rtaOtrasPath, 'utf-8');
 
+const rtaCompartidaPath = path.join(__dirname, 'mensajes', 'serverAdmin', 'rtaCompartida.txt')
+const rtaCompartida =  fs.readFileSync(rtaCompartidaPath, 'utf-8');
+
+const rtaDatosUsuarioPath = path.join(__dirname, 'mensajes', 'serverAdmin', 'rtaDatosUsuario.txt')
+const rtaDatosUsuario =  fs.readFileSync(rtaDatosUsuarioPath, 'utf-8');
+
+const rtaLicenciasPath = path.join(__dirname, 'mensajes', 'serverAdmin', 'rtaLicencias.txt')
+const rtaLicencias =  fs.readFileSync(rtaLicenciasPath, 'utf-8');
+
+const rtaFichasPath = path.join(__dirname,'mensajes','core','rtaFichas.txt')
+const rtaFichas = fs.readFileSync(rtaFichasPath,'utf-8')
+
+const rtaPermisosPath = path.join(__dirname,'mensajes','core','rtaPermisos.txt')
+const rtaPermisos = fs.readFileSync(rtaPermisosPath,'utf-8')
+
+const rtaRcdPath = path.join(__dirname,'mensajes','core','rtaRcd.txt')
+const rtaRcd = fs.readFileSync(rtaRcdPath,'utf-8')
+
+const rtaAgentePath = path.join(__dirname,'mensajes','telefonia','rtaAgente.txt')
+const rtaAgente = fs.readFileSync(rtaAgentePath,'utf-8')
+
+const rtaBarraPath = path.join(__dirname,'mensajes','telefonia','rtaBarra.txt')
+const rtaBarra = fs.readFileSync(rtaBarraPath,'utf-8')
+
+const rtaAvayaPath = path.join(__dirname,'mensajes','telefonia','rtaAvaya.txt')
+const rtaAvaya = fs.readFileSync(rtaAvayaPath,'utf-8')
+
+const telefoniaPath = path.join(__dirname,'mensajes','telefonia','telefonia.txt')
+const telefonia = fs.readFileSync(telefoniaPath,'utf-8')
+
+const corePath = path.join(__dirname,'mensajes','core','core.txt')
+const core = fs.readFileSync(corePath,'utf-8')
+
+const rtainconvenientesPath = path.join(__dirname,'mensajes','serviceDesk','rtainconvenientes.txt')
+const rtaInconvenientes = fs.readFileSync(rtainconvenientesPath,'utf-8')
+
+const rtainstalacionPath = path.join(__dirname,'mensajes','serviceDesk','rtainstalacion.txt')
+const rtainstalacion = fs.readFileSync(rtainstalacionPath,'utf-8')
+
+const rtaVinchaPath = path.join(__dirname,'mensajes','serviceDesk','rtaVincha.txt')
+const rtaVincha = fs.readFileSync(rtaVinchaPath,'utf-8')
+
 
 
 //######################################################################
@@ -51,7 +93,7 @@ const rtaOtras =  fs.readFileSync(rtaOtrasPath, 'utf-8');
 // **************** BIENVENIDA ***************************
 
 const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
-    .addAnswer('🙋‍♀️Hola! Soy Sophie y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara emepzar escribi *Menu*')
+    .addAnswer('🙋‍♀️Hola! Soy Sophie y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
 
 const flowWelcome = addKeyword(EVENTS.WELCOME)
 .addAnswer('🙋‍♀️Hola! Soy Sophie y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara emepzar escribi *Menu*')/*, {
@@ -69,37 +111,97 @@ const flowWelcome = addKeyword(EVENTS.WELCOME)
 
 const flowRtaForti = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaForti)
+
 const flowRtaBloqueada = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaBloqueada)
+
 const flowRtaWifi = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaWifi)
+
 const flowRtaOtras = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaOtras)
 
+//************************SERVER ADMIN ************************
 
-    const flowTicket = addKeyword(EVENTS.ACTION)
+
+const flowRtaCompartida = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaCompartida)
+
+const flowRtaDatosUsuario = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaDatosUsuario)
+
+const flowRtaLicencias = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaLicencias)
+
+//************************ CORE ************************
+
+const flowRtaFichas = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaFichas)
+
+const flowRtaPermisos = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaPermisos)
+
+const flowRtaRcd = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaRcd)
+
+//************************ TELEFONIA ************************
+
+const flowRtaAvaya = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAvaya)
+
+const flowRtaBarra = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAvaya)
+
+const flowRtaAgente = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAgente)
+
+//************************ SERVICE DESK ************************
+
+const flowRtainconvenientes = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaInconvenientes)
+
+const flowRtaInstalacion = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtainstalacion)
+
+const flowRtaVincha = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaVincha)
+
+
+//************************************************
+
+const flowTicket = addKeyword(EVENTS.ACTION)
     .addAnswer('Para hacer un ticker por favor ingresar a https://emergencias.sd.cloud.invgate.net/')
     .addAnswer('a',{
-        //media: 'https://emergencias.invgateusercontent.net/emergencias/uploads/attached_files/knowledge/4702/3f6cc75e84afb1416d4934b00269d4c3/Troubleshooting%20forti.pdf'
-        media: path.join(__dirname,'media','invgate 2.pdf')
+          media: path.join(__dirname,'media','invgate.pdf')
     })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
 const flowDesbloqueo = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\nAca te paso el link con el instructivo: https://emergencias.sd.cloud.invgate.net/knowledgebase_articles/show/index/article_id/30')
-    
+    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\nAca te paso el link con el instructivo:')
+    .addAnswer('a',{
+        media: path.join(__dirname,'media','ADSELFSERVICE.pdf')
+  })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
 const flowServerAdmin = addKeyword(EVENTS.ACTION)
 .addAnswer(
     serverAdmin, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
-        if (ctx.body === '0') {
-            console.log(ctx.name)
-
-            return gotoFlow(flowProblemasFrecuentes);
+        switch (ctx.body) {
+            case '1':
+                return gotoFlow(flowRtaCompartida)
+            case '2':
+                return gotoFlow(flowRtaDatosUsuario)
+            case '3':
+                return gotoFlow(flowRtaLicencias)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+                default:
+                   return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
+            
         }
-        // Aquí puedes agregar más lógica si necesitas manejar otras opciones dentro de flowNetworking
-        return fallBack('Respuesta no válida, por favor selecciona una opción válida o escribe 0 para volver al menú anterior.');
+    
     });
 
 
@@ -107,17 +209,54 @@ const flowServerAdmin = addKeyword(EVENTS.ACTION)
 
 
 const flowTelefonia = addKeyword(EVENTS.ACTION)
-.addAnswer('Te la debo');
+.addAnswer(
+    telefonia, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+        switch (ctx.body) {
+            case '1':
+                return gotoFlow(flowRtaAvaya)
+            case '2':
+                return gotoFlow(flowRtaBarra)
+            case '3':
+                return gotoFlow(flowRtaAgente)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+                default:
+                   return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
+            
+        }
+    
+    });
+
 
 
 const flowCore = addKeyword(EVENTS.ACTION)
-.addAnswer('Te la debo');
+.addAnswer(
+    core, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+        switch (ctx.body) {
+            case '1':
+                return gotoFlow(flowRtaFichas)
+            case '2':
+                return gotoFlow(flowRtaRcd)
+            case '3':
+                return gotoFlow(flowRtaPermisos)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+                default:
+                   return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
+            
+        }
+    
+    });
 
 const flowServiceDesk2 = addKeyword(EVENTS.ACTION)
 .addAnswer('Primero debe probar con esa misma vincha en otra computadora o probar otra vincha en esa misma computadora. Tambien se puede probar la configuracion de volumen en el avaya y en la computadora haciendo click derecho en el icono del volvumen e ir a sonidos.')
 
 const flowConsultas = addKeyword(EVENTS.ACTION)
-    .addAnswer('Haz una consulta', { capture: true }, async (ctx, ctxFn) => {
+    .addAnswer('Haceme una breve descripcion de tu prblema. Estoy segura que te voy a poder ayudar', { capture: true }, async (ctx, ctxFn) => {
         const prompt = promptConsultas;
         const consulta = ctx.body;
         const answer = await chat(prompt, consulta);
@@ -146,7 +285,7 @@ const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
                     return gotoFlow(flowService)
 
                 default:
-                    return fallBack('Respuesta no válida, por favor selecciona una opción del submenú.');
+                    return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
             }
         })
     
@@ -158,18 +297,18 @@ const flowService = addKeyword(EVENTS.ACTION)
        async (ctx, { gotoFlow, fallBack }) => {
            switch (ctx.body) {
                case '1':
-                   return gotoFlow(flowServiceDesk2)
+                   return gotoFlow(flowRtaInstalacion)
                case '2':
-                   return gotoFlow(flowNetworking)
+                   return gotoFlow(flowRtainconvenientes)
                case '3':
-                   return gotoFlow(flowTelefonia)
+                   return gotoFlow(flowRtaVincha)
                case '4':
-                   return gotoFlow(flowCore)
+                   return gotoFlow(flowRtaOtras)
                case '5':
-                   return gotoFlow(flowService)
+                   return gotoFlow(flowProblemasFrecuentes)
 
                default:
-                   return fallBack('Respuesta no válida, por favor selecciona una opción del submenú.');
+                   return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
            }
        })
 
@@ -208,7 +347,9 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
             case '4':
                 return gotoFlow(flowRtaOtras)  
             case '0':
-                return gotoFlow(flowProblemasFrecuentes);         
+                return gotoFlow(flowProblemasFrecuentes);    
+                default:
+                   return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');     
         }
         
 
@@ -216,7 +357,36 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
 
 const main = async () => {
     const adapterDB = new MockAdapter();
-    const adapterFlow = createFlow([flowPrincipal,flowWelcome, menuFlow, flowProblemasFrecuentes, flowTicket, flowDesbloqueo, flowConsultas, flowServerAdmin, flowNetworking, flowTelefonia, flowCore, flowService, flowServiceDesk2,flowRtaForti,flowConsultas,flowRtaOtras,flowRtaWifi]);
+    const adapterFlow = createFlow([
+            flowRtaCompartida,
+            flowRtaDatosUsuario, 
+            flowRtaLicencias, 
+            flowPrincipal,
+            flowWelcome, 
+            menuFlow, 
+            flowProblemasFrecuentes, 
+            flowTicket,
+            flowDesbloqueo, 
+            flowConsultas, 
+            flowServerAdmin, 
+            flowNetworking,
+            flowTelefonia, 
+            flowCore,
+            flowService,
+            flowServiceDesk2,
+            flowRtaForti,
+            flowConsultas,
+            flowRtaOtras,
+            flowRtaWifi,
+            flowRtaFichas,
+            flowRtaCompartida,
+            flowRtaRcd,
+        flowRtaAgente,
+    flowRtaAvaya,
+flowRtaBarra,
+flowRtaVincha,
+flowRtainconvenientes,
+flowRtaInstalacion]);
     const adapterProvider = createProvider(BaileysProvider);
 
     createBot({

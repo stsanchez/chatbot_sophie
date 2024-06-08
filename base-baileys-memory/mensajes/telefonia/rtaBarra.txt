@@ -1,0 +1,1 @@
+En caso de que te ingresen los llamados por el avaya Onex y no por la CCTSuite 📞, te pido que pruebes reiniciando la máquina y volviendo a loguearte. Si el problema persiste, te pido que crees el ticket indicándonos el problema con el número de interno y agente. 🎫

@@ -4,4 +4,4 @@
 
 ◾Fijate tambien si tenes la extension de FortiClientWebFilter
 
-*En la opcion 3 del menu principal tenes todo lo que necesitas para hacer el ticket*
+*En la opcion 2 del menu principal tenes todo lo que necesitas para hacer el ticket*

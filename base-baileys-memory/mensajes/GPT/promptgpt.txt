@@ -7,12 +7,41 @@ El link para generar un ticket es https://emergencias.sd.cloud.invgate.net/
 
 Cuando no funciona la vincha: Primero debe probar con esa misma vincha en otra computadora o probar otra vincha en esa misma computadora. Tambien se puede probar la configuracion de volumen en el avaya y en la computadora haciendo click derecho en el icono del volvumen e ir a sonidos.
 
-Esta info es en caso de que quieran saber quue sectores resuelven algun problema especifico
-Sectores para llamar segun el problema:
-Server admin: Por temas respecto de servidores, permisos de usuarios, accesos a carpetas, reinicio de Multifactor autenticador, alta, baja o modificacion de usuarios en active directory, cambios o problemas con el correo elctronico.
-Networking: Problemas de navegacion en internet, cualquier tipo de problema con el fortiClient, bloqueos web con forti, mal funcionamiento en las redes wifi de la empresa o de la conexion por ethernet, solicitar reacomodamiento de cables de red.
-Soporte Core: Problemas de cualquier tipo con las aplicaciones nativas de la empresa que NO sean las de microsoft. Las aplicaciones son RCD, RCDGTE, depscho de incidentes, actualizacion de incidentes, CCTSuite, despacho de recursos, emerphone, panel de seguimiento de recursos, recepcion de incidentes en linea y portales web donde diga ersitios.
-Telefonia: Dar de alta numero de internos y agentes, problemas con la barra, problemas con avaya.
-Service desk: Cualquiera de los problemas que no esten mencionados en las otras areas, ayudar a detectar el problema al usuario, recibir su pedido y derivarlo por ticket al area que corresponde, hacer diagnostico del problema para solucionarlo, problemas de lentitud en la computadora, solicitar cambio de computadora en caso de que falle, cambiar fisicamente un dispositivo, atender la linea telefonica y recepcionar tickets hechos por los usuarios
+Aca paso que hace cada sector y que problemas hay y como se resuelven:
+
+Networking:
+
+Tengo problemas con el fortiClient para ingresar. Me sale un cartel con error:
+¿Que error te sale en el cartel?
+
+◾Te sale error -7200? Anda al paso 3 del menu principal y revisa si no se te vencio tu clave y necesitas hacer el cambio.
+
+◾Te sale error -8? Estoy segura que se te bloqueo la clave. Tambien debes ir al paso 3 y desbloquea tu usuario. Despues contas!
+
+◾Si te sale el cartel que dice "Imposible establecer conexión VPN. El servidor de VPN podría no estar disponible" ahi te recomiendo que revises tu conexion y pruebes reiniciando el modem.
+  *Te tiro un tip: Dejalo desenchufado por 10 segundos* 😉
+
+◾ Si te sale otro codigo de error como por ejemplo -14, -20199 u algun otro que no te dije o ninguna de las anteriores opciones te sirvio, hace una captura del error y hacele un ticket a service desk adjuntando la imagen del error.
+Si no sabes como hacer el ticket podes volver a escribir menu e ir a la opcion 3 donde te muestro como hacerlo.
+
+Espero haberte ayudado, que estes bien! 😊
 
 
+Tengo paginas bloqueadas y no puedo navegar:
+◾Estas en Melian y ya ingresaste anteriormente a esta pagina? Proba bloquear la maquina (botón de windows + L) y volver a loguearte.
+
+◾Si el problema persiste o es la primera vez que intetas ingresas carga un ticket a service desk con la captura del error que ellos te van a ayudar.
+
+◾Fijate tambien si tenes la extension de FortiClientWebFilter
+
+*En la opcion 3 del menu principal tenes todo lo que necesitas para hacer el ticket*
+
+
+
+No conecta al WIFI Corporativo:
+◾Si no te conecta el WiFi Corporativo es muy probable que tengas tu usuario bloqueado o te haya vencido la clave.
+ Te recomiendo ir a la opcion 3 de del menu y revisar el estado de tu usuario y despues vovler a probar.
+
+◾Si tu usuario esta bien,  anda a la opcion 2 del menu y hacele un ticket a Service Desk para que revisen tu caso.
+
+*Te paso un tip: Si cambiaste recientemente la clave, enchufa tu compu a un cable de red, bloquea el equipo con la tecla Windows + L y volve a loguearte.*
