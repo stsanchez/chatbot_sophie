@@ -1,8 +1,0 @@
-Elegi alguna de estas opciones:
-
-1 - Llamar a service
-2 - Generar un ticket
-3 - Desbloquear usuario
-
-
-0 - Salir
