@@ -1,0 +1,144 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A6C648CD957BEB8C78',
+    participant: undefined
+  },
+  messageTimestamp: 1718131873,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'menu',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'menu',
+  from: '5491144030686'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_1676bf08-b1f2-4f10-ac7c-4852b233b4a6',
+  keyword: 'key_de6d32c2-670b-45c1-bd58-b2eaae4b144b',
+  answer: '📋 *Elegi alguna de estas opciones:*\r\n' +
+    '\r\n' +
+    '1️⃣ - Busca tu problema aca\r\n' +
+    '2️⃣ - Generar un ticket\r\n' +
+    '3️⃣ - Desbloquear usuario\r\n' +
+    '4️⃣ - Pregúntame lo que quieras saber\r\n' +
+    '\r\n',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd69f3303ad3737d87ac600f7d0371952'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB01C2D350A6AADA399EF',
+    participant: undefined
+  },
+  messageTimestamp: 1718131875,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '5491144030686'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB04ADEA2BA41BF2611E0',
+    participant: undefined
+  },
+  messageTimestamp: 1718131882,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '5491144030686'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0FAC6A1183D4C0C3671',
+    participant: undefined
+  },
+  messageTimestamp: 1718131886,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'menu',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'menu',
+  from: '5491144030686'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06FB26F6DECCA20EE59',
+    participant: undefined
+  },
+  messageTimestamp: 1718131891,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '5491144030686'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB048A37B50A05D1BCB3C',
+    participant: undefined
+  },
+  messageTimestamp: 1718131894,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'jdklasjdlska',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'jdklasjdlska',
+  from: '5491144030686'
+}
