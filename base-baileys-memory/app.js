@@ -93,10 +93,10 @@ const rtaVincha = fs.readFileSync(rtaVinchaPath,'utf-8')
 // **************** BIENVENIDA ***************************
 
 const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
-    .addAnswer('🙋‍♀️Hola! Soy Sophie y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
+    .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
 
 const flowWelcome = addKeyword(EVENTS.WELCOME)
-.addAnswer('🙋‍♀️Hola! Soy Sophie y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara emepzar escribi *Menu*')/*, {
+.addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')/*, {
     delay: 100 
 }, async (ctx, ctxFn) => {
     if (ctx.body.includes('casas')) {
@@ -170,14 +170,14 @@ const flowRtaVincha = addKeyword(EVENTS.ACTION)
 //************************************************
 
 const flowTicket = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para hacer un ticker por favor ingresar a https://emergencias.sd.cloud.invgate.net/')
+    .addAnswer('Para hacer un ticket por favor ingresar a https://emergencias.sd.cloud.invgate.net/')
     .addAnswer('a',{
-          media: path.join(__dirname,'media','invgate.pdf')
-    })
+        media: path.join(__dirname,'media','invgate.pdf')
+  })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
 const flowDesbloqueo = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\nAca te paso el link con el instructivo:')
+    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\nAca te paso el instructivo:')
     .addAnswer('a',{
         media: path.join(__dirname,'media','ADSELFSERVICE.pdf')
   })
@@ -283,6 +283,8 @@ const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
                     return gotoFlow(flowCore)
                 case '5':
                     return gotoFlow(flowService)
+                case '0':
+                    return gotoFlow(menuFlow)
 
                 default:
                     return fallBack('Respuesta no válida, por favor selecciona una opción del menú.');
@@ -304,7 +306,7 @@ const flowService = addKeyword(EVENTS.ACTION)
                    return gotoFlow(flowRtaVincha)
                case '4':
                    return gotoFlow(flowRtaOtras)
-               case '5':
+               case '0':
                    return gotoFlow(flowProblemasFrecuentes)
 
                default:
@@ -341,7 +343,7 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
             case '1':
                 return gotoFlow(flowRtaForti)
             case '2':
-                return gotoFlow(flowDesbloqueo)
+                return gotoFlow(flowRtaBloqueada)
             case '3':
                 return gotoFlow(flowRtaWifi)
             case '4':
