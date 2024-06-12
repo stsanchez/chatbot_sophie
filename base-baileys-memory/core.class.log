@@ -1,0 +1,123 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0076979279B3DD5FA8A',
+    participant: undefined
+  },
+  messageTimestamp: 1718205172,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'Tengo la pantalla de mi monitor en negro',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Tengo la pantalla de mi monitor en negro',
+  from: '5491144030686'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_d6e2fa0b-22fe-47f9-8ddc-bfee3fc95cf3',
+  keyword: 'key_266211b7-d477-46cd-b697-9062e4172bed',
+  answer: '🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\n' +
+    'Para empezar escribi *Menu*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'cb658b3a18d92eabcfeec3bf8de8df22'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02B99BF658138DF0430',
+    participant: undefined
+  },
+  messageTimestamp: 1718205175,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'menu',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'menu',
+  from: '5491144030686'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_696837ad-a506-443a-a3ed-cda639d310e2',
+  keyword: 'key_2398317e-0873-488d-8719-dd446dd2fb49',
+  answer: '📋 *Elegi alguna de estas opciones:*\r\n' +
+    '\r\n' +
+    '1️⃣ - Busca tu problema aca\r\n' +
+    '2️⃣ - Generar un ticket\r\n' +
+    '3️⃣ - Desbloquear usuario\r\n' +
+    '4️⃣ - Pregúntame lo que quieras saber\r\n' +
+    '\r\n',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '917749dbef4c40c8c4a8c8923c3f3fc0'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB08F9115C36C7B02EB37',
+    participant: undefined
+  },
+  messageTimestamp: 1718205177,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: '4',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '4',
+  from: '5491144030686'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491144030686@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0911EA855D80080914F',
+    participant: undefined
+  },
+  messageTimestamp: 1718205184,
+  pushName: 'Stefano',
+  broadcast: false,
+  message: Message {
+    conversation: 'tengo la pantalla de mi monitor en negro',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'tengo la pantalla de mi monitor en negro',
+  from: '5491144030686'
+}
