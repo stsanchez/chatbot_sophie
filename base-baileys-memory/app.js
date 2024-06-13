@@ -8,6 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const chat = require('./chatGPT');
 
+
 //######################################################################
 //################ SECCION PARA DECLARAR PATHS #########################
 //######################################################################
@@ -168,110 +169,23 @@ const flowRtaVincha = addKeyword(EVENTS.ACTION)
 
 
 //************************************************
+const pathMedia = 'C:/Users/SSanchez/Documents/Workspace/Chatbot/base-baileys-memory/media/';
 
 const flowTicket = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para hacer un ticket por favor ingresar a https://emergencias.sd.cloud.invgate.net/')
-    .addAnswer('a',{
-        media: path.join(__dirname,'media','invgate.pdf')
+    .addAnswer('Para hacer un ticket por favor ingresar a https://emergencias.sd.cloud.invgate.net/\n\nAca te paso el instructivo por si no sabes como hacerlo👇')
+    .addAnswer('Instructivo Invgate',{
+        media: pathMedia+'invgate.pdf'
   })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
 const flowDesbloqueo = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\nAca te paso el instructivo:')
+    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\n\nAca te paso el instructivo por si no sabes como hacerlo👇:')
     .addAnswer('a',{
-        media: path.join(__dirname,'media','ADSELFSERVICE.pdf')
+        media: pathMedia+'ADSELFSERVICE.pdf'
   })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
-const flowServerAdmin = addKeyword(EVENTS.ACTION)
-.addAnswer(
-    serverAdmin, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
-        const userInput = ctx.body.toLowerCase();
 
-        if (userInput === 'menu') {
-            return gotoFlow(menuFlow);
-        }
-        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-        switch (userInput) {
-            case '1':
-                return gotoFlow(flowRtaCompartida)
-            case '2':
-                return gotoFlow(flowRtaDatosUsuario)
-            case '3':
-                return gotoFlow(flowRtaLicencias)
-            case '4':
-                return gotoFlow(flowRtaOtras)
-            case '0':
-                return gotoFlow(flowProblemasFrecuentes)
-
-        }
-    
-    });
-
-
-
-
-
-const flowTelefonia = addKeyword(EVENTS.ACTION)
-.addAnswer(
-    telefonia, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
-        const userInput = ctx.body.toLowerCase();
-
-        if (userInput === 'menu') {
-            return gotoFlow(menuFlow);
-        }
-
-        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-        switch (userInput) {
-            case '1':
-                return gotoFlow(flowRtaAvaya)
-            case '2':
-                return gotoFlow(flowRtaBarra)
-            case '3':
-                return gotoFlow(flowRtaAgente)
-            case '4':
-                return gotoFlow(flowRtaOtras)
-            case '0':
-                return gotoFlow(flowProblemasFrecuentes)
-            
-        }
-    
-    });
-
-
-
-const flowCore = addKeyword(EVENTS.ACTION)
-.addAnswer(
-    core, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
-
-        const userInput = ctx.body.toLowerCase();
-
-        if (userInput === 'menu') {
-            return gotoFlow(menuFlow);
-        }
-        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-        switch (userInput) {
-            case '1':
-                return gotoFlow(flowRtaFichas)
-            case '2':
-                return gotoFlow(flowRtaRcd)
-            case '3':
-                return gotoFlow(flowRtaPermisos)
-            case '4':
-                return gotoFlow(flowRtaOtras)
-            case '0':
-                return gotoFlow(flowProblemasFrecuentes)
-
-            
-        }
-    
-    });
 
 const flowServiceDesk2 = addKeyword(EVENTS.ACTION)
 .addAnswer('Primero debe probar con esa misma vincha en otra computadora o probar otra vincha en esa misma computadora. Tambien se puede probar la configuracion de volumen en el avaya y en la computadora haciendo click derecho en el icono del volvumen e ir a sonidos.')
@@ -399,6 +313,96 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
         }
         
 
+    });
+
+    const flowServerAdmin = addKeyword(EVENTS.ACTION)
+.addAnswer(
+    serverAdmin, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+        const userInput = ctx.body.toLowerCase();
+
+        if (userInput === 'menu') {
+            return gotoFlow(menuFlow);
+        }
+        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+        switch (userInput) {
+            case '1':
+                return gotoFlow(flowRtaCompartida)
+            case '2':
+                return gotoFlow(flowRtaDatosUsuario)
+            case '3':
+                return gotoFlow(flowRtaLicencias)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+
+        }
+    
+    });
+
+
+
+
+
+const flowTelefonia = addKeyword(EVENTS.ACTION)
+.addAnswer(
+    telefonia, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+        const userInput = ctx.body.toLowerCase();
+
+        if (userInput === 'menu') {
+            return gotoFlow(menuFlow);
+        }
+
+        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+        switch (userInput) {
+            case '1':
+                return gotoFlow(flowRtaAvaya)
+            case '2':
+                return gotoFlow(flowRtaBarra)
+            case '3':
+                return gotoFlow(flowRtaAgente)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+            
+        }
+    
+    });
+
+
+
+const flowCore = addKeyword(EVENTS.ACTION)
+.addAnswer(
+    core, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+
+        const userInput = ctx.body.toLowerCase();
+
+        if (userInput === 'menu') {
+            return gotoFlow(menuFlow);
+        }
+        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+        switch (userInput) {
+            case '1':
+                return gotoFlow(flowRtaFichas)
+            case '2':
+                return gotoFlow(flowRtaRcd)
+            case '3':
+                return gotoFlow(flowRtaPermisos)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+
+            
+        }
+    
     });
 
 const main = async () => {
