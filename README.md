@@ -1,9 +1,3 @@
-Entendido, para documentar el código de tu bot en un archivo separado, puedes crear un documento de texto o un archivo Markdown (.md). Este archivo contendrá una descripción detallada de cada parte del código, sus funciones y cómo interactúan entre sí.
-
-A continuación, te muestro un ejemplo de cómo podrías estructurar esta documentación en un archivo Markdown:
-
----
-
 ## Documentación del Bot de WhatsApp
 
 ### Introducción
