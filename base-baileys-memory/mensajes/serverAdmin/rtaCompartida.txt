@@ -3,3 +3,5 @@
 ◾Si estas en Melian primero fijate que no tengas el usuario bloqueado o vencido usando la opcion 3 del menu y despues ejecutar el icono de "Logon unidades" en el escritorio.
 
 ◾Si ninguna de estas opciones funciona, te conviene hacer un ticket a Service Desk yendo a la opcion 2 del menu donde te digo como hacerlo.
+
+↩Para volver a ver las opciones principales escribí *Menu*

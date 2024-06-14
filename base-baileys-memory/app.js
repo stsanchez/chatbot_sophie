@@ -87,11 +87,7 @@ const rtaVincha = fs.readFileSync(rtaVinchaPath,'utf-8')
 
 
 
-//######################################################################
-//################ SECCION PARA DECLARAR FLOWS #########################
-//######################################################################
-
-// **************** BIENVENIDA ***************************
+// Saludo Emmy
 
 const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
     .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
@@ -107,68 +103,31 @@ const flowWelcome = addKeyword(EVENTS.WELCOME)
     }
 };*/
 
-//************************NETWORKING ************************
 
+// Menu principal
+const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
+    menu,
+    { capture: true },
+    async (ctx, { gotoFlow, fallBack, flowDynamic }) => {
+        if (!['1', '2', '3', '4', '0'].includes(ctx.body)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+        switch (ctx.body) {
+            case '1':
+                return gotoFlow(flowProblemasFrecuentes);
+            case '2':
+                return gotoFlow(flowTicket);
+            case '3':
+                return gotoFlow(flowDesbloqueo);
+            case '4':
+                return gotoFlow(flowConsultas);
+            case '0':
+                return await flowDynamic('Saliendo... Podes volver a acceder escribiendo "*Menu*"');
+        }
+    }
+);
 
-const flowRtaForti = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaForti)
-
-const flowRtaBloqueada = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaBloqueada)
-
-const flowRtaWifi = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaWifi)
-
-const flowRtaOtras = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaOtras)
-
-//************************SERVER ADMIN ************************
-
-
-const flowRtaCompartida = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaCompartida)
-
-const flowRtaDatosUsuario = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaDatosUsuario)
-
-const flowRtaLicencias = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaLicencias)
-
-//************************ CORE ************************
-
-const flowRtaFichas = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaFichas)
-
-const flowRtaPermisos = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaPermisos)
-
-const flowRtaRcd = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaRcd)
-
-//************************ TELEFONIA ************************
-
-const flowRtaAvaya = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaAvaya)
-
-const flowRtaBarra = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaAvaya)
-
-const flowRtaAgente = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaAgente)
-
-//************************ SERVICE DESK ************************
-
-const flowRtainconvenientes = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaInconvenientes)
-
-const flowRtaInstalacion = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtainstalacion)
-
-const flowRtaVincha = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaVincha)
-
-
-//************************************************
+// Flows Ticket y AdSelfService
 const pathMedia = 'C:/Users/SSanchez/Documents/Workspace/Chatbot/base-baileys-memory/media/';
 
 const flowTicket = addKeyword(EVENTS.ACTION)
@@ -185,24 +144,7 @@ const flowDesbloqueo = addKeyword(EVENTS.ACTION)
   })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
 
-
-
-const flowServiceDesk2 = addKeyword(EVENTS.ACTION)
-.addAnswer('Primero debe probar con esa misma vincha en otra computadora o probar otra vincha en esa misma computadora. Tambien se puede probar la configuracion de volumen en el avaya y en la computadora haciendo click derecho en el icono del volvumen e ir a sonidos.')
-
-const flowConsultas = addKeyword(EVENTS.ACTION)
-    .addAnswer('Haceme una breve descripcion de tu problema. Estoy segura que te voy a poder ayudar', { capture: true }, async (ctx, ctxFn) => {
-        const prompt = promptConsultas;
-        const consulta = ctx.body;
-        const answer = await chat(prompt, consulta);
-        await ctxFn.flowDynamic(answer.content);
-    });
-
-//######################################################################
-//################ SECCION PARA DECLARAR MENUS #########################
-//######################################################################
-
-// Modificar el flujo de teléfonos para incluir un submenú
+// Flow Problemas frecuentes
 const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
     .addAnswer(problemasFrecuentes,
      { capture: true },
@@ -232,60 +174,10 @@ const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
             
             }
         })
-    
 
+//************************NETWORKING ************************
 
-const flowService = addKeyword(EVENTS.ACTION)
-.addAnswer(service,
-    { capture: true },
-       async (ctx, { gotoFlow, fallBack }) => {
-
-        const userInput = ctx.body.toLowerCase();
-
-        if (userInput === 'menu') {
-            return gotoFlow(menuFlow);
-        }
-
-        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-           switch (userInput) {
-               case '1':
-                   return gotoFlow(flowRtaInstalacion)
-               case '2':
-                   return gotoFlow(flowRtainconvenientes)
-               case '3':
-                   return gotoFlow(flowRtaVincha)
-               case '4':
-                   return gotoFlow(flowRtaOtras)
-               case '0':
-                   return gotoFlow(flowProblemasFrecuentes)
-           }
-       })
-
-
-const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
-    menu,
-    { capture: true },
-    async (ctx, { gotoFlow, fallBack, flowDynamic }) => {
-        if (!['1', '2', '3', '4', '0'].includes(ctx.body)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-        switch (ctx.body) {
-            case '1':
-                return gotoFlow(flowProblemasFrecuentes);
-            case '2':
-                return gotoFlow(flowTicket);
-            case '3':
-                return gotoFlow(flowDesbloqueo);
-            case '4':
-                return gotoFlow(flowConsultas);
-            case '0':
-                return await flowDynamic('Saliendo... Podes volver a acceder escribiendo "*Menu*"');
-        }
-    }
-);
-
+// Menu networking
 const flowNetworking = addKeyword(EVENTS.ACTION)
     .addAnswer(networking, { capture: true }, async (ctx, { gotoFlow, fallBack }) => {
 
@@ -315,7 +207,24 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
 
     });
 
-    const flowServerAdmin = addKeyword(EVENTS.ACTION)
+//Flows Respuestas networking
+
+const flowRtaForti = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaForti)
+
+const flowRtaBloqueada = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaBloqueada)
+
+const flowRtaWifi = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaWifi)
+
+const flowRtaOtras = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaOtras)
+
+//************************SERVER ADMIN ************************
+
+//Menu server admin
+const flowServerAdmin = addKeyword(EVENTS.ACTION)
 .addAnswer(
     serverAdmin, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
         const userInput = ctx.body.toLowerCase();
@@ -341,41 +250,19 @@ const flowNetworking = addKeyword(EVENTS.ACTION)
         }
     
     });
+//Flows Respuestas Server
+const flowRtaCompartida = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaCompartida)
 
+const flowRtaDatosUsuario = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaDatosUsuario)
 
+const flowRtaLicencias = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaLicencias)
 
+//************************ CORE ************************
 
-
-const flowTelefonia = addKeyword(EVENTS.ACTION)
-.addAnswer(
-    telefonia, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
-        const userInput = ctx.body.toLowerCase();
-
-        if (userInput === 'menu') {
-            return gotoFlow(menuFlow);
-        }
-
-        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
-            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
-        }
-        switch (userInput) {
-            case '1':
-                return gotoFlow(flowRtaAvaya)
-            case '2':
-                return gotoFlow(flowRtaBarra)
-            case '3':
-                return gotoFlow(flowRtaAgente)
-            case '4':
-                return gotoFlow(flowRtaOtras)
-            case '0':
-                return gotoFlow(flowProblemasFrecuentes)
-            
-        }
-    
-    });
-
-
-
+//Menu Core
 const flowCore = addKeyword(EVENTS.ACTION)
 .addAnswer(
     core, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
@@ -405,6 +292,109 @@ const flowCore = addKeyword(EVENTS.ACTION)
     
     });
 
+//Flows respuestas core
+const flowRtaFichas = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaFichas)
+
+const flowRtaPermisos = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaPermisos)
+
+const flowRtaRcd = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaRcd)
+
+//************************ TELEFONIA ************************
+
+//Menu telefonia
+const flowTelefonia = addKeyword(EVENTS.ACTION)
+.addAnswer(
+    telefonia, {capture: true} , async (ctx, { gotoFlow, fallBack }) => {
+        const userInput = ctx.body.toLowerCase();
+
+        if (userInput === 'menu') {
+            return gotoFlow(menuFlow);
+        }
+
+        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+        switch (userInput) {
+            case '1':
+                return gotoFlow(flowRtaAvaya)
+            case '2':
+                return gotoFlow(flowRtaBarra)
+            case '3':
+                return gotoFlow(flowRtaAgente)
+            case '4':
+                return gotoFlow(flowRtaOtras)
+            case '0':
+                return gotoFlow(flowProblemasFrecuentes)
+            
+        }
+    
+    });
+
+//Flows respuestas telefonia
+const flowRtaAvaya = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAvaya)
+
+const flowRtaBarra = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAvaya)
+
+const flowRtaAgente = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaAgente)
+
+// ******************Seccion Service Desk*******************
+
+//Menu Service
+const flowService = addKeyword(EVENTS.ACTION)
+.addAnswer(service,
+    { capture: true },
+       async (ctx, { gotoFlow, fallBack }) => {
+
+        const userInput = ctx.body.toLowerCase();
+
+        if (userInput === 'menu') {
+            return gotoFlow(menuFlow);
+        }
+
+        if (!['1', '2', '3', '4', '0'].includes(userInput)) {
+            return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
+        }
+           switch (userInput) {
+               case '1':
+                   return gotoFlow(flowRtaInstalacion)
+               case '2':
+                   return gotoFlow(flowRtainconvenientes)
+               case '3':
+                   return gotoFlow(flowRtaVincha)
+               case '4':
+                   return gotoFlow(flowRtaOtras)
+               case '0':
+                   return gotoFlow(flowProblemasFrecuentes)
+           }
+       })
+//Flows respuestas service
+const flowRtainconvenientes = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaInconvenientes)
+
+const flowRtaInstalacion = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtainstalacion)
+
+const flowRtaVincha = addKeyword(EVENTS.ACTION)
+    .addAnswer(rtaVincha)
+
+
+//****************** GPT ****************************
+
+const flowConsultas = addKeyword(EVENTS.ACTION)
+    .addAnswer('Haceme una breve descripcion de tu problema. Estoy segura que te voy a poder ayudar', { capture: true }, async (ctx, ctxFn) => {
+        const prompt = promptConsultas;
+        const consulta = ctx.body;
+        const answer = await chat(prompt, consulta);
+        await ctxFn.flowDynamic(answer.content);
+    });
+
+
 const main = async () => {
     const adapterDB = new MockAdapter();
     const adapterFlow = createFlow([
@@ -423,7 +413,6 @@ const main = async () => {
             flowTelefonia, 
             flowCore,
             flowService,
-            flowServiceDesk2,
             flowRtaForti,
             flowConsultas,
             flowRtaOtras,

@@ -4,3 +4,5 @@
 ◾Si tu usuario esta bien,  anda a la opcion 2 del menu y hacele un ticket a Service Desk para que revisen tu caso.
 
 *Te paso un tip: Si cambiaste recientemente la clave, enchufa tu compu a un cable de red, bloquea el equipo con la tecla Windows + L y volve a loguearte.*
+
+↩Para volver a ver las opciones principales escribí *Menu*

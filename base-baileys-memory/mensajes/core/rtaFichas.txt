@@ -4,3 +4,5 @@ Estas en la red de emer o de tu casa?
 ◾Si te pasan el link por mail hace click derecho para copiarlo y pegalo directamente en el navegador
 
 ◾Si te sale algun cartel de error hacele captura y mandala por un ticket a Service Desk que ellos te van a ayudar.
+
+↩Para volver a ver las opciones principales escribí *Menu*

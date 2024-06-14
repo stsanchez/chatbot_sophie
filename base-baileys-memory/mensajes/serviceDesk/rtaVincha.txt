@@ -6,3 +6,5 @@ Inconvenientes en tu vincha? Podemos realizar las siguientes pruebas:
 ◾Puedes probar cambiando de puerto USB. 🔄
 
 Si el error persiste, puedes cargarnos un ticket y te vamos a contactar. 📋
+
+↩Para volver a ver las opciones principales escribí *Menu*

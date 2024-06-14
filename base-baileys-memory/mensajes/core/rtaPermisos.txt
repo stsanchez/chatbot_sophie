@@ -5,3 +5,4 @@ En lo posible, a demas del nombre de la aplicaicon, pasales un usaurio de ejempl
 
 ◾Si no sabes como hacer el ticket, anda a la opcion 2 del menu principal
 
+↩Para volver a ver las opciones principales escribí *Menu*
