@@ -90,14 +90,23 @@ const rtaVincha = fs.readFileSync(rtaVinchaPath,'utf-8')
 // Saludo Emmy
 
 const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
-    .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
+    .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribi *Menu*'
+    /*null,
+    async (ctx,ctxFn) => {
+        username = ctx.pushName;
+        console.log(username);
+        await ctxFn.flowDynamic('🙋‍♀️Hola '+username+'! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')
+
+    }*/
+)
+
 
 const flowWelcome = addKeyword(EVENTS.WELCOME)
-.addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá. ¿En que puedo ayudarte?\nPara empezar escribi *Menu*')/*, {
+.addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribi *Menu*')/*, {
     delay: 100 
 }, async (ctx, ctxFn) => {
     if (ctx.body.includes('casas')) {
-        await ctxFn.flowDynamic('Escribiste casas');
+        
     } else {
         await ctxFn.flowDynamic('Escribiste otra cosa');
     }
