@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const chat = require('./chatGPT');
 
-//PROBANDO PULL GIT
+//PROBANDO PULL GITT
 //######################################################################
 //################ SECCION PARA DECLARAR PATHS #########################
 //######################################################################
