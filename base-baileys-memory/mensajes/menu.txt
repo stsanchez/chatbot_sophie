@@ -3,5 +3,6 @@
 1️⃣ - Busca tu problema aca
 2️⃣ - Generar un ticket
 3️⃣ - Desbloquear usuario
-4️⃣ - Pregúntame lo que quieras saber
+4️⃣ - Buscar la ip
+5️⃣ - Pregúntame lo que quieras saber
 

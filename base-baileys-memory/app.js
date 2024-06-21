@@ -118,7 +118,7 @@ const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
     menu,
     { capture: true },
     async (ctx, { gotoFlow, fallBack, flowDynamic }) => {
-        if (!['1', '2', '3', '4', '0'].includes(ctx.body)) {
+        if (!['1', '2', '3', '4', '5', '0'].includes(ctx.body)) {
             return fallBack('❌Esta opción no está en el menú. Escribí una de las opciones ');
         }
         switch (ctx.body) {
@@ -129,7 +129,10 @@ const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
             case '3':
                 return gotoFlow(flowDesbloqueo);
             case '4':
+                return gotoFlow(flowIp);
+            case '5':
                 return gotoFlow(flowConsultas);
+            
             case '0':
                 return await flowDynamic('Saliendo... Podes volver a acceder escribiendo "*Menu*"');
         }
@@ -152,6 +155,21 @@ const flowDesbloqueo = addKeyword(EVENTS.ACTION)
         media: pathMedia+'ADSELFSERVICE.pdf'
   })
     .addAnswer('Para volver a ver las opciones escribi *Menu*')
+
+const flowIp = addKeyword(EVENTS.ACTION)
+  .addAnswer('Te voy a ayudar a conseguir la ip de tu euqipo')
+  .addAnswer('Primero fijate si tenes en tu escritorio el icono que dice "DATOS USUARIO. Te dejo una imagen del icono👇')
+  .addAnswer('El icono',{
+    media: pathMedia+'logon.jpg'
+  })
+  .addAnswer('Una vez que se abre el archivo, tenes que pasarle al tecnico el numero que esta donde dice "IPv4 Address👇"')
+  .addAnswer('Ejemplo de ip',{
+    media: pathMedia+'ip_logon.jpg'
+  })
+  .addAnswer('¿No encontraste el icono? No te preocupes, aca te paso un instructivo para buscar la ip de otra forma')
+  .addAnswer('Aca esta el instructivo. Espero que te sirva😊',{
+    media: pathMedia+'instructivo_ip.pdf'
+  })
 
 // Flow Problemas frecuentes
 const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
@@ -434,7 +452,8 @@ const main = async () => {
             flowRtaBarra,
             flowRtaVincha,
             flowRtainconvenientes,
-            flowRtaInstalacion]);
+            flowRtaInstalacion,
+            flowIp]);
     const adapterProvider = createProvider(BaileysProvider);
 
     createBot({
