@@ -166,10 +166,41 @@ const flowIp = addKeyword(EVENTS.ACTION)
   .addAnswer('Ejemplo de ip',{
     media: pathMedia+'ip_logon.jpg'
   })
-  .addAnswer('¿No encontraste el icono? No te preocupes, aca te paso un instructivo para buscar la ip de otra forma')
-  .addAnswer('Aca esta el instructivo. Espero que te sirva😊',{
-    media: pathMedia+'instructivo_ip.pdf'
-  })
+  .addAnswer('¿Encontraste el icono?',
+  { capture: true },
+  async (ctx,{gotoFlow, fallBack}) => {
+      const userInput = ctx.body.toLowerCase();
+
+  if (userInput === 'no') {
+      return gotoFlow(flowIp2);       
+      
+  }
+  if (userInput === 'si') {
+    return gotoFlow(flowIp3);
+}
+  if (userInput !== 'si' && userInput !== 'no') {
+    return fallBack('Por favor escribir "si" o "no" ');
+  }
+})
+
+const flowIp3 = addKeyword(EVENTS.ACTION)
+    .addAnswer('Que bueno, entonces ya le podes pasar la ip al tecnico y continuar. Cualquier otra cosa estoy para ayudarte')
+
+const flowIp2 = addKeyword(EVENTS.ACTION)
+    .addAnswer('Entonces segui estos pasos:\nSi estas conectado/a a la vpn entra a la ventana principal de forti y deberias ver la ip ahi👇')
+    .addAnswer('Pantalla de forti',{
+        media: pathMedia+'ip_forti.jpg'
+      })
+    .addAnswer('Si estas en la oficina hace lo siguiente:\nPrimero anda a inicio y escribi "CMD" y hace click en "Simbolo del sistema"')
+    .addAnswer('Simbolo del sistema',{
+        media: pathMedia+'cmd.jpg'
+      })
+    .addAnswer('Una vez abierta la ventana tenes que escribir "ipconfig" (sin las comillas) y apretar enter. Ahi te aparece la ip. Te muesto como deberia ser:')
+    .addAnswer('Ip equipo',{
+        media: pathMedia+'ip_config.jpg',
+        media: pathMedia+'ip_config3.jpg'
+      })
+    .addAnswer('❗ACLARACION: Las ip que ves, son de ejemplo. Vos tenes que pasar la que te aparece en tu pc\n\nPara volver a ver las opciones escribi *Menu*')
 
 // Flow Problemas frecuentes
 const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
@@ -424,7 +455,7 @@ const flowConsultas = addKeyword(EVENTS.ACTION)
 
 const main = async () => {
     const adapterDB = new MockAdapter();
-    const adapterFlow = createFlow([
+    const adapterFlow = createFlow([       
             flowRtaCompartida,
             flowRtaDatosUsuario, 
             flowRtaLicencias, 
@@ -453,7 +484,7 @@ const main = async () => {
             flowRtaVincha,
             flowRtainconvenientes,
             flowRtaInstalacion,
-            flowIp]);
+            flowIp,flowIp2,flowIp3]);
     const adapterProvider = createProvider(BaileysProvider);
 
     createBot({
