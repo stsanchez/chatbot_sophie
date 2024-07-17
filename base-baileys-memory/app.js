@@ -8,12 +8,12 @@ const path = require('path');
 const fs = require('fs');
 const chat = require('./chatGPT');
 
-//PROBANDO PULL GITT
+//PROBANDO SI SUBE A REPO
 //######################################################################
 //################ SECCION PARA DECLARAR PATHS #########################
 //######################################################################
 
-const menuPath = path.join(__dirname, 'mensajes', 'menu.txt');
+const menuPath = path.join(__dirname, 'mensajes', 'menu.txt'); 
 const menu = fs.readFileSync(menuPath, 'utf-8');
 
 const problemasFrecuentesPath = path.join(__dirname, 'mensajes','problemasFrecuentes.txt')
@@ -90,7 +90,7 @@ const rtaVincha = fs.readFileSync(rtaVinchaPath,'utf-8')
 // Saludo Emmy
 
 const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
-    .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribi *Menu*'
+    .addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribí *Menu*'
     /*null,
     async (ctx,ctxFn) => {
         username = ctx.pushName;
@@ -102,7 +102,7 @@ const flowPrincipal = addKeyword (['Hola','hola','Buenas','Holi','Holis'])
 
 
 const flowWelcome = addKeyword(EVENTS.WELCOME)
-.addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribi *Menu*')/*, {
+.addAnswer('🙋‍♀️Hola! Soy Emmy y estoy encantada que estes acá.\nPara empezar escribí *Menu*')/*, {
     delay: 100 
 }, async (ctx, ctxFn) => {
     if (ctx.body.includes('casas')) {
@@ -134,7 +134,7 @@ const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
                 return gotoFlow(flowConsultas);
             
             case '0':
-                return await flowDynamic('Saliendo... Podes volver a acceder escribiendo "*Menu*"');
+                return await flowDynamic('Saliendo... Podés volver a acceder escribiendo "*Menu*"');
         }
     }
 );
@@ -143,26 +143,26 @@ const menuFlow = addKeyword(['Menu','menu','Menú','menú']).addAnswer(
 const pathMedia = 'C:/Users/SSanchez/Documents/Workspace/Chatbot/base-baileys-memory/media/';
 
 const flowTicket = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para hacer un ticket por favor ingresar a https://emergencias.sd.cloud.invgate.net/\n\nAca te paso el instructivo por si no sabes como hacerlo👇')
+    .addAnswer('Para hacer un ticket por favor ingresar a https://emergencias.sd.cloud.invgate.net/\n\nAcá te paso el instructivo por si no sabes como hacerlo👇')
     .addAnswer('Instructivo Invgate',{
         media: pathMedia+'invgate.pdf'
   })
-    .addAnswer('Para volver a ver las opciones escribi *Menu*')
+    .addAnswer('Para volver a ver las opciones escribí *Menu*')
 
 const flowDesbloqueo = addKeyword(EVENTS.ACTION)
-    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\n\nAca te paso el instructivo por si no sabes como hacerlo👇:')
+    .addAnswer('Para desbloquear el usuario debes hacerlo desde AdSerfService: https://desbloqueo.emergencias.com.ar/authorization.do\n\nAcá te paso el instructivo por si no sabes como hacerlo👇:')
     .addAnswer('a',{
         media: pathMedia+'ADSELFSERVICE.pdf'
   })
-    .addAnswer('Para volver a ver las opciones escribi *Menu*')
+    .addAnswer('Para volver a ver las opciones escribí *Menu*')
 
 const flowIp = addKeyword(EVENTS.ACTION)
-  .addAnswer('Te voy a ayudar a conseguir la ip de tu euqipo')
-  .addAnswer('Primero fijate si tenes en tu escritorio el icono que dice "DATOS USUARIO. Te dejo una imagen del icono👇')
+  .addAnswer('Te voy a ayudar a conseguir la ip de tu equipo')
+  .addAnswer('Primero fijate si tenés en tu escritorio el icono que dice "DATOS USUARIO". Te dejo una imagen del icono👇')
   .addAnswer('El icono',{
     media: pathMedia+'logon.jpg'
   })
-  .addAnswer('Una vez que se abre el archivo, tenes que pasarle al tecnico el numero que esta donde dice "IPv4 Address👇"')
+  .addAnswer('Una vez que se abre el archivo, tenés que pasarle al técnico el numero que esta donde dice "IPv4 Address👇"')
   .addAnswer('Ejemplo de ip',{
     media: pathMedia+'ip_logon.jpg'
   })
@@ -179,28 +179,28 @@ const flowIp = addKeyword(EVENTS.ACTION)
     return gotoFlow(flowIp3);
 }
   if (userInput !== 'si' && userInput !== 'no') {
-    return fallBack('Por favor escribir "si" o "no" ');
+    return fallBack('Por favor escribir "si" o "No" ');
   }
 })
 
 const flowIp3 = addKeyword(EVENTS.ACTION)
-    .addAnswer('Que bueno, entonces ya le podes pasar la ip al tecnico y continuar. Cualquier otra cosa estoy para ayudarte')
+    .addAnswer('Que bueno, entonces ya le podes pasar la ip al técnico y continuar. Cualquier otra cosa estoy para ayudarte')
 
 const flowIp2 = addKeyword(EVENTS.ACTION)
-    .addAnswer('Entonces segui estos pasos:\nSi estas conectado/a a la vpn entra a la ventana principal de forti y deberias ver la ip ahi👇')
+    .addAnswer('Entonces seguí estos pasos:\nSi estas conectado/a a la vpn entra a la ventana principal de forti y deberias ver la ip ahi👇')
     .addAnswer('Pantalla de forti',{
         media: pathMedia+'ip_forti.jpg'
       })
-    .addAnswer('Si estas en la oficina hace lo siguiente:\nPrimero anda a inicio y escribi "CMD" y hace click en "Simbolo del sistema"')
+    .addAnswer('Si estas en la oficina hace lo siguiente:\nPrimero anda a inicio y escribí "CMD" y hacé click en "Simbolo del sistema"')
     .addAnswer('Simbolo del sistema',{
         media: pathMedia+'cmd.jpg'
       })
-    .addAnswer('Una vez abierta la ventana tenes que escribir "ipconfig" (sin las comillas) y apretar enter. Ahi te aparece la ip. Te muesto como deberia ser:')
+    .addAnswer('Una vez abierta la ventana tenés que escribir "ipconfig" (sin las comillas) y apretar enter. Ahi te aparece la ip. Te muestro como deberia ser:')
     .addAnswer('Ip equipo',{
         media: pathMedia+'ip_config.jpg',
         media: pathMedia+'ip_config3.jpg'
       })
-    .addAnswer('❗ACLARACION: Las ip que ves, son de ejemplo. Vos tenes que pasar la que te aparece en tu pc\n\nPara volver a ver las opciones escribi *Menu*')
+    .addAnswer('❗ACLARACIÓN: Las ip que ves, son de ejemplo. Vos tenés que pasar la que te aparece en tu pc\n\nPara volver a ver las opciones escribí *Menu*')
 
 // Flow Problemas frecuentes
 const flowProblemasFrecuentes = addKeyword(EVENTS.ACTION)
@@ -394,10 +394,13 @@ const flowTelefonia = addKeyword(EVENTS.ACTION)
 //Flows respuestas telefonia
 const flowRtaAvaya = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaAvaya)
+    .addAnswer('Acá te dejo un ejemplo de como tiene que figurar ',{
+        media: pathMedia+'rtaAvaya.png'
+      })
 
 const flowRtaBarra = addKeyword(EVENTS.ACTION)
-    .addAnswer(rtaAvaya)
-
+    .addAnswer(rtaBarra)
+    
 const flowRtaAgente = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaAgente)
 
@@ -422,7 +425,7 @@ const flowService = addKeyword(EVENTS.ACTION)
                case '1':
                    return gotoFlow(flowRtaInstalacion)
                case '2':
-                   return gotoFlow(flowRtainconvenientes)
+                   return gotoFlow(flowRtaInconvenientes)
                case '3':
                    return gotoFlow(flowRtaVincha)
                case '4':
@@ -432,7 +435,7 @@ const flowService = addKeyword(EVENTS.ACTION)
            }
        })
 //Flows respuestas service
-const flowRtainconvenientes = addKeyword(EVENTS.ACTION)
+const flowRtaInconvenientes = addKeyword(EVENTS.ACTION)
     .addAnswer(rtaInconvenientes)
 
 const flowRtaInstalacion = addKeyword(EVENTS.ACTION)
@@ -445,7 +448,7 @@ const flowRtaVincha = addKeyword(EVENTS.ACTION)
 //****************** GPT ****************************
 
 const flowConsultas = addKeyword(EVENTS.ACTION)
-    .addAnswer('Haceme una breve descripcion de tu problema. Estoy segura que te voy a poder ayudar', { capture: true }, async (ctx, ctxFn) => {
+    .addAnswer('Haceme una breve descripción de tu problema. Estoy segura que te voy a poder ayudar', { capture: true }, async (ctx, ctxFn) => {
         const prompt = promptConsultas;
         const consulta = ctx.body;
         const answer = await chat(prompt, consulta);
@@ -482,7 +485,7 @@ const main = async () => {
             flowRtaAvaya,
             flowRtaBarra,
             flowRtaVincha,
-            flowRtainconvenientes,
+            flowRtaInconvenientes,
             flowRtaInstalacion,
             flowIp,flowIp2,flowIp3]);
     const adapterProvider = createProvider(BaileysProvider);
